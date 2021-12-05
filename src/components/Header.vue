@@ -11,24 +11,37 @@
         <el-link href="/blogs">
           主页
         </el-link>
+        <el-divider direction="vertical"></el-divider>
       </span>
-      <el-divider direction="vertical"></el-divider>
       <span>
         <el-link type="success" href="/blog/add">
           发表博客
         </el-link>
+        <el-divider direction="vertical"></el-divider>
       </span>
-      <el-divider direction="vertical"></el-divider>
       <span v-show="!hasLogin">
         <el-link type="primary" href="/login">
           登录
         </el-link>
+        <el-divider direction="vertical"></el-divider>
       </span>
-      <el-divider direction="vertical"></el-divider>
+      <span v-show="!hasLogin">
+        <el-link type="primary" href="/register">
+          注册
+        </el-link>
+        <el-divider direction="vertical"></el-divider>
+      </span>
+      <span v-show="hasLogin">
+        <el-link type="primary" href="#">
+          个人中心
+        </el-link>
+        <el-divider direction="vertical"></el-divider>
+      </span>
       <span v-show="hasLogin">
         <el-link type="danger" @click="logout">
           退出
         </el-link>
+        <el-divider direction="vertical"></el-divider>
       </span>
     </div>
 
