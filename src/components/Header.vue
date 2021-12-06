@@ -74,20 +74,20 @@ export default {
         _this.$router.push("/login");
       })
     },
-    init(){
+    init() {
       // 已登录
-      if (this.$store.getters.getUser.username) {
-        this.user.username = this.$store.getters.getUser.username;
-        this.user.avatar = this.$store.getters.getUser.avatar;
+      if (sessionStorage.getItem("userInfo") !== '') {
+        this.user.username = JSON.parse(sessionStorage.getItem("userInfo")).username;
+        this.user.avatar = JSON.parse(sessionStorage.getItem("userInfo")).avatar;
         this.hasLogin = true;
       }
     }
   },
-  created: function () {
+  created() {
     this.init();
   },
 
-  mounted(){
+  mounted() {
     this.init();
   }
 }
