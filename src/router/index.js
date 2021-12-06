@@ -5,6 +5,7 @@ import BlogDetail from "@/views/BlogDetail";
 import Blogs from "@/views/Blogs";
 import BlogEdit from "@/views/BlogEdit";
 import Register from "@/views/Register";
+import UserCenter from "@/views/UserCenter";
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,14 @@ const routes = [
         path: '/register',
         name: 'Register',
         component: Register
+    },
+    {
+        path: '/userCenter',
+        name: 'UserCenter',
+        component: UserCenter,
+        meta: {
+            requireAuth: true
+        }
     }
     ]
 

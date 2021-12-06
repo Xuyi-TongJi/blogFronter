@@ -82,8 +82,7 @@ export default {
   created(){
     const _this = this;
     _this.ruleForm.id = _this.$route.params.blogId;
-    // if (_this.ruleForm.id !== null && _this.ruleForm.id === localStorage.getItem())
-    if (_this.ruleForm.id !== null){
+    if (_this.ruleForm.id !== null && _this.ruleForm.id instanceof Number){
       _this.$axios.get("/blog/" + _this.ruleForm.id)
         .then(res => {
           _this.ruleForm.title = res.data.data.title;

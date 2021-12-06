@@ -32,7 +32,7 @@
         <el-divider direction="vertical"></el-divider>
       </span>
       <span v-show="hasLogin">
-        <el-link type="primary" href="#">
+        <el-link type="primary" href="/userCenter">
           个人中心
         </el-link>
         <el-divider direction="vertical"></el-divider>
@@ -73,14 +73,22 @@ export default {
         _this.$store.commit("REMOVE_INFO");
         _this.$router.push("/login");
       })
+    },
+    init(){
+      // 已登录
+      if (this.$store.getters.getUser.username) {
+        this.user.username = this.$store.getters.getUser.username;
+        this.user.avatar = this.$store.getters.getUser.avatar;
+        this.hasLogin = true;
+      }
     }
   },
-  created(){
-    if (this.$store.getters.getUser.username){
-      this.user.username = this.$store.getters.getUser.username;
-      this.user.avatar = this.$store.getters.getUser.avatar;
-      this.hasLogin = true;
-    }
+  created: function () {
+    this.init();
+  },
+
+  mounted(){
+    this.init();
   }
 }
 </script>
